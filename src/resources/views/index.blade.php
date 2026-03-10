@@ -6,23 +6,22 @@
 
 @section('content')
 @foreach($todos as $todo)
-<tr>
+<tr class="table__row">
     <td>
         <form action="/todos/{{ $todo -> id }}" method="post">
             @csrf
             @method('patch')
-            <input type="text" name="content" value="{{ $todo -> content }}">
-            <button type="submit">更新</button>
+            <input class="table__row-content" type="text" name="content" value="{{ $todo -> content }}">
+            <button class="table__row-update" type="submit">更新</button>
         </form>
     </td>
     <td>
         <form action="/todos/{{ $todo -> id }}" method="post">
             @csrf
             @method('delete')
-            <button type="submit">削除</button>
+            <button class="table__row-delete" type="submit">削除</button>
         </form>
     </td>
-
 </tr>
 @endforeach
 @endsection
