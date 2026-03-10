@@ -71,7 +71,7 @@ class TodoController extends Controller
      * @param  \App\Models\Todo  $todo
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Todo $todo)
+    public function update(TodoRequest $request, Todo $todo)
     {
         $todo -> update($request->only(['content']));
         return redirect('/')->with('message', 'Todoを更新しました');
