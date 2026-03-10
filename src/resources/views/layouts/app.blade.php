@@ -15,7 +15,14 @@
             <a href="/">Todo</a>
         </div>
         <div>
-            <!-- <span></span> -->
+            <span>{{ session('message')  }}</span>
+            @if($errors -> any())
+            <div>
+                @foreach ( $errors ->all() as $error )
+                {{ $error }}
+                @endforeach
+            </div>
+            @endif
         </div>
     </header>
 
