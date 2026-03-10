@@ -5,21 +5,24 @@
 @endsection
 
 @section('content')
-<tr>
 @foreach($todos as $todo)
-    <th>{{ $todo }}</th>
+<tr>
     <td>
-        <form action="">
+        <form action="/todos/{{ $todo -> id }}" method="post">
             @csrf
-            更新
+            @method('patch')
+            <input type="text" name="content" value="{{ $todo -> content }}">
+            <button type="submit">更新</button>
         </form>
     </td>
     <td>
-        <form action="">
+        <form action="/todos/{{ $todo -> id }}" method="post">
             @csrf
-            削除
+            @method('delete')
+            <button type="submit">削除</button>
         </form>
     </td>
-@endforeach
+
 </tr>
+@endforeach
 @endsection
